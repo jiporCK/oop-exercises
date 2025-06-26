@@ -30,13 +30,7 @@ public class TodoManagerImpl implements TodoManager{
 
     @Override
     public boolean deleteTask(Long id) {
-        for (Task t : tasks) {
-            if (t.getId().equals(id)) {
-                tasks.remove(t);
-                return true;
-            }
-        }
-        return false;
+        return tasks.removeIf(task -> task.getId().equals(id));
     }
 
 }
